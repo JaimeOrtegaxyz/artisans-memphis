@@ -1,5 +1,7 @@
 # Memphis Artisan Keycaps
 
+> **Untested 3D model:** These files have not been physically validated. I advise checking fit, switch clearance, tolerances, and print settings before relying on the models.
+
 Four Memphis-inspired artisan keycaps with editable Blender models, overview drawings, and single-material STL prototypes.
 
 ![Memphis artisan keycaps](output/Memphis_Artisans.png)
