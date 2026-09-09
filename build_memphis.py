@@ -309,8 +309,8 @@ for screen in bpy.data.screens:
             a.spaces.active.overlay.show_extras=False
 # Do not publish local home directories saved by the default file-browser UI.
 for screen in bpy.data.screens:
-    for area in screen.areas:
-        for space in area.spaces:
+    for editor_area in screen.areas:
+        for space in editor_area.spaces:
             if space.type=='FILE_BROWSER' and getattr(space,'params',None):
                 space.params.directory=b'//'
 bpy.ops.object.select_all(action='DESELECT')
