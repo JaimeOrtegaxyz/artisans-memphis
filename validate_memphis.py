@@ -10,7 +10,7 @@ for col in bpy.data.collections:
         ev=ob.evaluated_get(dg); me=ev.to_mesh(); bm=bmesh.new(); bm.from_mesh(me)
         report['objects'].append({'name':ob.name,'non_manifold_edges':sum(not e.is_manifold for e in bm.edges),'volume_mm3':round(bm.calc_volume(signed=True),5),'dimensions_mm':[round(v,4) for v in ob.dimensions]})
         bm.free(); ev.to_mesh_clear()
-    if bpy.context.scene.get('design_revision',0)>=4:
+    if 'shell_height_mm' in bpy.context.scene:
         shell=next(o for o in col.objects if 'hollow' in o.name)
         stem=next(o for o in col.objects if 'MX socket' in o.name)
         ev=shell.evaluated_get(dg)

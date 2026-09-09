@@ -1,0 +1,2 @@
+# Drawing-sheet composition; no runtime dependencies beyond Pillow itself.
+Pillow==12.3.0

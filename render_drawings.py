@@ -54,7 +54,7 @@ for number,title,slug in caps:
     evaluated_shell=shell.evaluated_get(dg)
     shell_z=[(evaluated_shell.matrix_world@Vector(p)).z for p in evaluated_shell.bound_box]
     shell_height=max(shell_z)-min(shell_z)
-    row={'number':number,'title':title,'slug':slug,'revision':int(scene.get('design_revision',4)),'ortho_scale_mm':24,'view_pixels':800,'overall_height_mm':round(zmax-zmin,2),'shell_height_mm':round(shell_height,2),'wall_draft_deg':round(float(shell.get('wall_draft_deg',scene.get('wall_draft_deg',7.6))),1),'footprint_mm':18,'deck_mm':15,'views':{}}
+    row={'number':number,'title':title,'slug':slug,'ortho_scale_mm':24,'view_pixels':800,'overall_height_mm':round(zmax-zmin,2),'shell_height_mm':round(shell_height,2),'wall_draft_deg':round(float(shell.get('wall_draft_deg',scene.get('wall_draft_deg',7.6))),1),'footprint_mm':18,'deck_mm':15,'views':{}}
     views={
         'top':((x,y,100),(0,0,0)),
         'front':((x,y-100,mid),(math.pi/2,0,0)),

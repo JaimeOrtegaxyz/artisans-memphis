@@ -10,7 +10,7 @@ scene=bpy.context.scene
 scene.unit_settings.system='METRIC'; scene.unit_settings.scale_length=.001
 scene.unit_settings.length_unit='MILLIMETERS'
 
-# Revision 4: match the plain deck to a near-10 mm Cherry R1 height target.
+# Match the plain deck to a near-10 mm Cherry R1 height target.
 # Keep the physical switch seat fixed; do NOT count decorative relief as base height.
 SKIRT_BOTTOM=.25
 SHELL_HEIGHT=9.8
@@ -18,7 +18,6 @@ DECK_Z=SKIRT_BOTTOM+SHELL_HEIGHT
 SOCKET_BOTTOM=.4
 SOCKET_SEAT_Z=5.1
 WALL_DRAFT=math.degrees(math.atan(1.2/(DECK_Z-.35-.7)))
-scene['design_revision']=4
 scene['shell_height_mm']=SHELL_HEIGHT
 scene['deck_z_mm']=DECK_Z
 scene['wall_draft_deg']=WALL_DRAFT
@@ -50,7 +49,7 @@ spotted=cream.copy(); spotted.name='08 | Dalmatian porcelain • continuous 3D s
 nodes=spotted.node_tree.nodes; links=spotted.node_tree.links
 tex=nodes.new('ShaderNodeTexCoord'); tex.location=(-900,0)
 noise=nodes.new('ShaderNodeTexNoise'); noise.inputs['Scale'].default_value=.8; noise.inputs['Detail'].default_value=1.3; noise.location=(-720,-160)
-# Preserve the previous stain layout as the body grows vertically.
+# Normalize pigment coordinates to a fixed texture-space height.
 rescale=nodes.new('ShaderNodeVectorMath'); rescale.operation='MULTIPLY'; rescale.inputs[1].default_value=(1,1,8.75/SHELL_HEIGHT)
 links.new(tex.outputs['Object'],rescale.inputs[0])
 remap=nodes.new('ShaderNodeVectorMath'); remap.operation='ADD'; remap.inputs[1].default_value=(0,0,SKIRT_BOTTOM*(1-8.75/SHELL_HEIGHT))
@@ -117,9 +116,8 @@ def rounded_outline(poly,inset,radius,segments=8,balanced=False):
         sign=1 if turn>0 else -1
         ni=Vector((-u.y,u.x)); no=Vector((-v.y,v.x))
         q=p+(ni+no)*(inset/(1+u.dot(v)))
-        # For blocky motifs, decouple plan corner radii from the vertical shoulder
-        # roll. Otherwise inset .6 turns a convex .8 radius into .2, but a concave
-        # .8 radius into 1.4: exactly the visual mismatch corrected in revision 3.
+        # Decouple plan corner radii from the shoulder roll so convex and concave
+        # corners retain a consistent, blocky appearance.
         r=radius if balanced else radius-sign*inset
         tangent=r*math.tan(abs(turn)/2)
         start=q-u*tangent; center=start+ni*(sign*r)
@@ -130,8 +128,7 @@ def rounded_outline(poly,inset,radius,segments=8,balanced=False):
     return out
 
 def arch_outline(inset):
-    # Latest correction: preserve concentric curved crowns, then extend both
-    # terminals 2.15 mm down with short straight legs and rounded bottom corners.
+    # Concentric curved crown with 2.15 mm straight legs and rounded terminals.
     outer=7.0; inner=3.35; corner=.8; cy=-4.15; leg=2.15
     yo=cy-leg+corner; ro=outer-inset; ri=inner+inset
     r=corner-inset; pts=[]
@@ -248,7 +245,7 @@ origins=[(-pitch/2,pitch/2),(pitch/2,pitch/2),(-pitch/2,-pitch/2),(pitch/2,-pitc
 for i in range(4):
     current=cols[i]; origin=origins[i]; shell=base(['ARCH','ZIGZAG','DISC','STAIRS'][i],[cream,yellow,blue,red][i])
     if i==0:
-        # Concentric semicircular crown, with short legs per the latest feedback.
+        # Concentric semicircular crown with short straight legs.
         cy=-4.15; outer=7.0; inner=3.35
         poly=[(outer*math.cos(t*math.pi/64),cy+outer*math.sin(t*math.pi/64)) for t in range(65)]
         poly += [(inner*math.cos(t*math.pi/64),cy+inner*math.sin(t*math.pi/64)) for t in range(64,-1,-1)]
@@ -310,6 +307,12 @@ for screen in bpy.data.screens:
             a.spaces.active.clip_end=3000
             a.spaces.active.shading.type='MATERIAL'
             a.spaces.active.overlay.show_extras=False
+# Do not publish local home directories saved by the default file-browser UI.
+for screen in bpy.data.screens:
+    for area in screen.areas:
+        for space in area.spaces:
+            if space.type=='FILE_BROWSER' and getattr(space,'params',None):
+                space.params.directory=b'//'
 bpy.ops.object.select_all(action='DESELECT')
 scene['README']='MEMPHIS / four 1u resin artisan concepts. Model units mm. Separate editable colored parts; studio in collection 05. Prototype MX mounts, not validated for production. See MODEL_NOTES.md.'
 bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT,'Memphis_Artisans.blend'))

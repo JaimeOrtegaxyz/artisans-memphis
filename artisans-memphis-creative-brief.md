@@ -10,13 +10,13 @@ The original navigation legends are intentionally absent. These are decorative o
 
 ## The four keycaps
 
-### 1. Arch and bead — upper left
+### 1. Arch and dome — upper left
 
-An ivory or warm-cream base with scattered black terrazzo-like speckles. A thick teal semicircular arch rises from the surface, framing a small glossy red-orange sphere near its center. The composition suggests a doorway, rainbow, or abstract face without resolving into any one symbol. It is the lightest cap in the set and acts as a visual bridge back to the keyboard's ivory alphanumeric keys.
+An ivory or warm-cream base with irregular black patches wrapping onto its sides. A thick, low teal arch with short terminals frames a glossy red-orange hemisphere, concentric with the curved crown. The composition suggests a doorway, rainbow, or abstract face without resolving into any one symbol. It is the lightest cap in the set and acts as a visual bridge back to the keyboard's ivory alphanumeric keys.
 
-### 2. Zigzag and violet bead — upper right
+### 2. Zigzag and violet cylinder — upper right
 
-A saturated mustard-yellow base supports a chunky black stepped zigzag, like a tiny lightning bolt or bent architectural beam. A lavender-violet sphere sits near the upper corner, deliberately offset from the zigzag. The tension between the dark angular shape and soft round bead gives this cap its character.
+A saturated mustard-yellow base supports a chunky black stepped zigzag, like a tiny lightning bolt or bent architectural beam. A low lavender-violet cylinder sits near the upper-right corner, close to the zigzag. The tension between the dark angular shape and soft round disc gives this cap its character.
 
 ### 3. Disc and rails — lower left
 
@@ -24,7 +24,7 @@ A deep cobalt-blue base carries a raised warm-cream disc toward one side, balanc
 
 ### 4. Lavender staircase — lower right
 
-A vivid red-orange base holds a lavender staircase or stepped ziggurat rising diagonally across the surface. The steps are broad, rounded slightly at their edges, and feel architectural rather than typographic. This cap has the strongest sense of upward movement and completes the set with a clear sculptural silhouette.
+A vivid red-orange base holds a lavender stair-shaped silhouette centered on the surface. Its top is a single plane; the diagonal rise is in the outline, not in physical step heights. Small, consistent corner radii keep it architectural and blocky. This cap has the strongest sense of upward movement and completes the set with a clear sculptural silhouette.
 
 ## Shared form language
 

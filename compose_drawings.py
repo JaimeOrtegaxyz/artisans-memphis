@@ -47,7 +47,7 @@ def sheet(row):
     text(120,45,'MEMPHIS / ARTISAN KEYCAPS',SMALL,MUTED)
     text(120,84,title.upper(),font(48,bold=True))
     text(2280,48,'MC-'+number, font(30,mono=True),anchor='ra')
-    text(2280,91,f"ORTHOGRAPHIC OVERVIEW  /  REV {row['revision']:02d}",SMALL,MUTED,anchor='ra')
+    text(2280,91,'ORTHOGRAPHIC OVERVIEW',SMALL,MUTED,anchor='ra')
     line([(120,162),(2280,162)])
     for x,y,label in [(120,205,'01 / TOP'),(1320,205,'02 / UNDERSIDE'),(120,1080,'03 / FRONT'),(1320,1080,'04 / RIGHT SIDE')]:
         text(x,y,label,SMALL,MUTED)

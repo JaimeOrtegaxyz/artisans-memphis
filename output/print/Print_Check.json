@@ -1,0 +1,83 @@
+{
+  "units": "mm",
+  "physical_fit_validated": false,
+  "note": "Single-material prototypes. Closed-mesh checks do not establish switch fit, full travel, material strength, or printability on a particular machine.",
+  "files": [
+    {
+      "file": "00_BASE_FIT_TEST.stl",
+      "triangles": 5780,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1352.5301,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        9.8
+      ],
+      "bottom_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "file": "01_ARCH_DOME.stl",
+      "triangles": 16770,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1501.1827,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        12.3
+      ],
+      "bottom_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "file": "02_ZIGZAG_CYLINDER.stl",
+      "triangles": 38218,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1497.0935,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        11.45
+      ],
+      "bottom_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "file": "03_DISC_RAILS.stl",
+      "triangles": 38240,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1477.1653,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        11.3
+      ],
+      "bottom_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "file": "04_STAIR_SILHOUETTE.stl",
+      "triangles": 8840,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1464.7117,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        11.45
+      ],
+      "bottom_z_mm": 0.0,
+      "pass": true
+    }
+  ],
+  "pass": true
+}
