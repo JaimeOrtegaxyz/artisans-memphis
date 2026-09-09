@@ -4,7 +4,7 @@
 
 Four Memphis-inspired artisan keycaps with editable Blender models, overview drawings, and single-material STL prototypes.
 
-![Memphis artisan keycaps](output/Memphis_Artisans.png)
+![Memphis artisan keycaps](output/memphis-keycaps.png)
 
 ## The set
 
