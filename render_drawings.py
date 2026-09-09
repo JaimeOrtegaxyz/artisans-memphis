@@ -42,7 +42,7 @@ for number,title,slug in caps:
     cavity.diffuse_color=(*(v*.38 for v in base_color[:3]),1)
     stem.data.materials.append(cavity)
     for p in stem.data.polygons:
-        if math.hypot(p.center.x,p.center.y)<2.5 and p.center.z>-3.3:
+        if math.hypot(p.center.x,p.center.y)<2.5 and (stem.matrix_world@p.center).z>stem.get('socket_bottom_z_mm',.4)+.02:
             p.material_index=len(stem.data.materials)-1
     x,y=shell.location.x,shell.location.y
     dg=bpy.context.evaluated_depsgraph_get()
@@ -51,7 +51,10 @@ for number,title,slug in caps:
         ev=o.evaluated_get(dg)
         pts.extend(ev.matrix_world@Vector(p) for p in ev.bound_box)
     zmin=min(p.z for p in pts); zmax=max(p.z for p in pts); mid=(zmin+zmax)/2
-    row={'number':number,'title':title,'slug':slug,'ortho_scale_mm':24,'view_pixels':800,'overall_height_mm':round(zmax-zmin,2),'shell_height_mm':round(9-zmin,2),'footprint_mm':18,'deck_mm':15,'views':{}}
+    evaluated_shell=shell.evaluated_get(dg)
+    shell_z=[(evaluated_shell.matrix_world@Vector(p)).z for p in evaluated_shell.bound_box]
+    shell_height=max(shell_z)-min(shell_z)
+    row={'number':number,'title':title,'slug':slug,'revision':int(scene.get('design_revision',4)),'ortho_scale_mm':24,'view_pixels':800,'overall_height_mm':round(zmax-zmin,2),'shell_height_mm':round(shell_height,2),'wall_draft_deg':round(float(shell.get('wall_draft_deg',scene.get('wall_draft_deg',7.6))),1),'footprint_mm':18,'deck_mm':15,'views':{}}
     views={
         'top':((x,y,100),(0,0,0)),
         'front':((x,y-100,mid),(math.pi/2,0,0)),

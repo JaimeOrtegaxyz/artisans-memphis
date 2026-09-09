@@ -13,6 +13,8 @@ A coordinated set of four Memphis-inspired artisan keycaps: bold colors, geometr
 
 The models combine low relief, rounded shoulders, and subtle flared junctions for a glazed-ceramic impression. Colored parts remain separately editable.
 
+**Current revision: 04.** The plain base is now **9.8 mm tall**, targeting the owner's Cherry R1/top-row height; the decorative relief starts above that deck. Four roof-level ribs reinforce each socket boss, with a small lead-in at the cross opening. This is a custom artisan profile informed by a GMK-based reference, not an exact or certified GMK reproduction.
+
 ## Open in Blender
 
 Download or clone the repository, then open **[output/Memphis_Artisans.blend](output/Memphis_Artisans.blend)** in Blender 4.3 or newer.
@@ -39,7 +41,7 @@ One 2400 × 1800 PNG per cap, with top, front, right-side, and underside views p
 - [03 — Disc + rails](output/drawings/03_DISC_RAILS.png)
 - [04 — Stair silhouette](output/drawings/04_STAIR_SILHOUETTE.png)
 
-These are simple orthographic design references, **not manufacturing drawings**. Glaze patterns are omitted for clarity, and socket recesses use an illustrative darker tint. Height dimensions are measured from the lowest modeled skirt edge, not the scene's Z = 0 datum. Images carry 300 DPI metadata, but their displayed/printed scale is not fixed.
+The four sheets are the **current revision only** and replace the earlier drawings in place. They explicitly distinguish the 9.8 mm plain base from total height including decoration. These are simple orthographic design references, **not manufacturing drawings**. Glaze patterns are omitted for clarity, and socket recesses use an illustrative darker tint. Height dimensions are measured from the lowest modeled skirt edge, not the scene's Z = 0 datum. Images carry 300 DPI metadata, but their displayed/printed scale is not fixed.
 
 To regenerate from the saved `.blend` without modifying it:
 
@@ -58,16 +60,19 @@ Blender produces intermediate views in `output/drawings/_views/` (git-ignored); 
 | Switch-center pitch | 19.05 mm |
 | Base footprint | 18 × 18 mm |
 | Top deck | 15 × 15 mm |
-| Deck height | Z = 9 mm |
-| Main exterior wall draft | Approximately 8.6° |
-| Highest point | Z = 11.5 mm |
-| MX-style cross recess | 4.20 × 1.30 mm, 4.70 mm deep |
+| Plain base height, skirt to deck | **9.8 mm** (formerly 8.75 mm) |
+| Deck Z coordinate | 10.05 mm; skirt bottom is Z = 0.25 mm |
+| Main exterior wall draft | Approximately 7.6° |
+| Total height, arch / zigzag / disc / stairs | 12.30 / 11.45 / 11.30 / 11.45 mm |
+| MX-style cross recess | 4.20 × 1.30 mm, 4.70 mm total depth |
+| Cross entry lead-in | 0.10 mm at 45° |
+| Socket reinforcement | Four high-set 1.10 mm nominal roof ribs |
 
 **These are design prototypes, not production-ready keycaps.** Socket fit, switch clearance, full travel, print shrinkage, and assembly tolerances have not been physically validated. Test-print a socket coupon before attempting a full set, and never force a tight socket onto a switch.
 
 Individual component meshes pass the included manifold-edge and positive-volume checks. That does **not** establish that the intersecting assembly is ready for printing. Parts need appropriate union or assembly preparation before fabrication. The black porcelain patches are a procedural material, so they will not appear in an STL export.
 
-See **[MODEL_NOTES.md](MODEL_NOTES.md)** for detailed dimensions, revision decisions, and fabrication guidance.
+See **[MODEL_NOTES.md](MODEL_NOTES.md)** for detailed dimensions, reinforcement design, revision decisions, and fabrication guidance. The height choice is informed by the owner's measurements and [KeyV2's GMK-based Cherry R1 definition](https://github.com/rsheldiii/KeyV2/blob/19f0d2faadd4949634c93f38d1a66869d29e8f43/src/key_profiles/cherry.scad), whose height depends on stem-inset compensation; 9.8 mm is our design target, not a universal Cherry specification.
 
 ## Rebuild the scene
 
@@ -97,7 +102,7 @@ MEMPHIS_DRAFT=1 blender --background --python build_memphis.py
 blender --background output/Memphis_Artisans.blend --python validate_memphis.py
 ```
 
-This writes `output/Geometry_Check.json`, reporting non-manifold edges and signed volumes for each evaluated design mesh.
+This writes `output/Geometry_Check.json`, reporting non-manifold edges and signed volumes for each evaluated design mesh. Revision 4 also checks the actual 9.8 mm base height, unchanged socket mouth/seat levels, and four ribs per cap. It does not simulate physical switch travel or material strength.
 
 ## Repository contents
 

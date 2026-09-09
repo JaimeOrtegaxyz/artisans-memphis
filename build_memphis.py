@@ -10,6 +10,20 @@ scene=bpy.context.scene
 scene.unit_settings.system='METRIC'; scene.unit_settings.scale_length=.001
 scene.unit_settings.length_unit='MILLIMETERS'
 
+# Revision 4: match the plain deck to a near-10 mm Cherry R1 height target.
+# Keep the physical switch seat fixed; do NOT count decorative relief as base height.
+SKIRT_BOTTOM=.25
+SHELL_HEIGHT=9.8
+DECK_Z=SKIRT_BOTTOM+SHELL_HEIGHT
+SOCKET_BOTTOM=.4
+SOCKET_SEAT_Z=5.1
+WALL_DRAFT=math.degrees(math.atan(1.2/(DECK_Z-.35-.7)))
+scene['design_revision']=4
+scene['shell_height_mm']=SHELL_HEIGHT
+scene['deck_z_mm']=DECK_Z
+scene['wall_draft_deg']=WALL_DRAFT
+scene['height_reference']='9.8 mm plain deck target, informed by GMK-based KeyV2 Cherry R1 and owner measurement; not a certified Cherry specification.'
+
 def collection(name):
     c=bpy.data.collections.new(name); scene.collection.children.link(c); return c
 stage=collection('05 • Studio (hide for fabrication)')
@@ -36,11 +50,16 @@ spotted=cream.copy(); spotted.name='08 | Dalmatian porcelain • continuous 3D s
 nodes=spotted.node_tree.nodes; links=spotted.node_tree.links
 tex=nodes.new('ShaderNodeTexCoord'); tex.location=(-900,0)
 noise=nodes.new('ShaderNodeTexNoise'); noise.inputs['Scale'].default_value=.8; noise.inputs['Detail'].default_value=1.3; noise.location=(-720,-160)
-links.new(tex.outputs['Object'],noise.inputs['Vector'])
+# Preserve the previous stain layout as the body grows vertically.
+rescale=nodes.new('ShaderNodeVectorMath'); rescale.operation='MULTIPLY'; rescale.inputs[1].default_value=(1,1,8.75/SHELL_HEIGHT)
+links.new(tex.outputs['Object'],rescale.inputs[0])
+remap=nodes.new('ShaderNodeVectorMath'); remap.operation='ADD'; remap.inputs[1].default_value=(0,0,SKIRT_BOTTOM*(1-8.75/SHELL_HEIGHT))
+links.new(rescale.outputs['Vector'],remap.inputs[0])
+links.new(remap.outputs['Vector'],noise.inputs['Vector'])
 warp=nodes.new('ShaderNodeVectorMath'); warp.operation='SCALE'; warp.inputs[3].default_value=1.5; warp.location=(-520,-160)
 links.new(noise.outputs['Color'],warp.inputs[0])
 add=nodes.new('ShaderNodeVectorMath'); add.operation='ADD'; add.location=(-330,0)
-links.new(tex.outputs['Object'],add.inputs[0]); links.new(warp.outputs['Vector'],add.inputs[1])
+links.new(remap.outputs['Vector'],add.inputs[0]); links.new(warp.outputs['Vector'],add.inputs[1])
 cells=nodes.new('ShaderNodeTexVoronoi'); cells.inputs['Scale'].default_value=.28; cells.location=(-150,0)
 links.new(add.outputs['Vector'],cells.inputs['Vector'])
 ramp=nodes.new('ShaderNodeValToRGB'); ramp.location=(50,0); ramp.color_ramp.interpolation='EASE'
@@ -132,8 +151,8 @@ def arch_outline(inset):
 
 def glazed_prism(name,poly,material,height=1.65,corner=.85,roll=.6,paired_cap=False,outline_fn=None,balanced=False):
     """Broad top roll plus a small outward foot: a glazed-on, rather than glued-on, edge."""
-    top=9+height
-    profile=[(-.12,8.88),(-.12,8.98),(-.07,9.055),(-.025,9.13),(0,9.23),(0,top-roll)]
+    top=DECK_Z+height
+    profile=[(-.12,DECK_Z-.12),(-.12,DECK_Z-.02),(-.07,DECK_Z+.055),(-.025,DECK_Z+.13),(0,DECK_Z+.23),(0,top-roll)]
     for j in range(1,13):
         a=math.pi*j/24; profile.append((roll*(1-math.cos(a)),top-roll+roll*math.sin(a)))
     vs=[]
@@ -159,10 +178,10 @@ def hemisphere(name,x,y,r,material):
     n=96; vs=[]
     for j in range(25):
         a=(math.pi/2)*j/25
-        vs.extend((x+r*math.cos(a)*math.cos(2*math.pi*k/n),y+r*math.cos(a)*math.sin(2*math.pi*k/n),9+r*math.sin(a)) for k in range(n))
+        vs.extend((x+r*math.cos(a)*math.cos(2*math.pi*k/n),y+r*math.cos(a)*math.sin(2*math.pi*k/n),DECK_Z+r*math.sin(a)) for k in range(n))
     fs=[tuple(reversed(range(n)))]
     for j in range(24): fs.extend((j*n+k,j*n+(k+1)%n,(j+1)*n+(k+1)%n,(j+1)*n+k) for k in range(n))
-    pole=len(vs); vs.append((x,y,9+r))
+    pole=len(vs); vs.append((x,y,DECK_Z+r))
     fs.extend((24*n+k,24*n+(k+1)%n,pole) for k in range(n))
     ob=mesh(name,vs,fs,material); ob.modifiers.clear(); ob.data.polygons[0].use_smooth=False
     return ob
@@ -175,9 +194,9 @@ def rounded_ring(width,r,z):
     return pts
 
 def base(label,material):
-    # Continuous manifold shell, including underside cavity and 1.65 mm roof.
-    rings=[(14.7,1.05,.25),(13.5,1.3,6.85),(13.1,1.4,7.15),
-           (15.0,1.65,9.0),(15.6,1.75,8.65),(18,1.5,.7),(17.8,1.45,.25)]
+    # Raise the roof/cavity ceiling together, maintaining the 1.85 mm roof.
+    rings=[(14.7,1.05,SKIRT_BOTTOM),(13.5,1.3,DECK_Z-2.15),(13.1,1.4,DECK_Z-1.85),
+           (15.0,1.65,DECK_Z),(15.6,1.75,DECK_Z-.35),(18,1.5,.7),(17.8,1.45,SKIRT_BOTTOM)]
     # Separate top exterior and cavity ceiling connected through walls, not through roof sides.
     order=[rings[i] for i in [2,1,0,6,5,4,3]]
     vs=sum([rounded_ring(*r) for r in order],[]); n=64
@@ -186,21 +205,42 @@ def base(label,material):
         fs += [(k*n+i,k*n+(i+1)%n,(k+1)*n+(i+1)%n,(k+1)*n+i) for i in range(n)]
     fs.append(tuple(range((len(order)-1)*n,len(order)*n)))
     shell=mesh(label+' | hollow 1u shell',vs,fs,material,.16)
-    stem=cylinder(label+' | MX socket (prototype)',(0,0,3.8),2.8,6.8,material,.12)
+    boss_top=DECK_Z-1.8
+    stem=cylinder(label+' | MX socket (prototype)',(0,0,(SOCKET_BOTTOM+boss_top)/2),2.8,boss_top-SOCKET_BOTTOM,material,.12)
     # Apply bevel before cross subtraction, leaving the nominal slot dimensions precise.
     bpy.context.view_layer.objects.active=stem
     for m in list(stem.modifiers): bpy.ops.object.modifier_apply(modifier=m.name)
-    # One plus-shaped cutter avoids coplanar sequential cuts.
-    a=2.10; b=.65
-    plus=[(-b,-a),(b,-a),(b,-b),(a,-b),(a,b),(b,b),(b,a),(-b,a),(-b,b),(-a,b),(-a,-b),(-b,-b)]
-    cut=prism('temporary cross cutter',plus,-.2,5.1,None,0)
+    # A short 0.10 mm / 45-degree entry lead-in eases alignment without changing
+    # the nominal 4.20 x 1.30 mm engagement section or the fixed seating depth.
+    def plus(a,b):
+        return [(-b,-a),(b,-a),(b,-b),(a,-b),(a,b),(b,b),(b,a),(-b,a),(-b,b),(-a,b),(-a,-b),(-b,-b)]
+    cut_rings=[(-.2,2.20,.75),(SOCKET_BOTTOM,2.20,.75),(SOCKET_BOTTOM+.10,2.10,.65),(SOCKET_SEAT_Z,2.10,.65)]
+    cv=[(x,y,z) for z,a,b in cut_rings for x,y in plus(a,b)]
+    cf=[tuple(reversed(range(12))),tuple(range(36,48))]
+    for k in range(3): cf.extend((k*12+j,k*12+(j+1)%12,(k+1)*12+(j+1)%12,(k+1)*12+j) for j in range(12))
+    cut=mesh('temporary cross cutter',cv,cf,None)
+    cut.modifiers.clear()
     mod=stem.modifiers.new('MX cross • 4.20 × 1.30 mm • depth 4.70','BOOLEAN'); mod.operation='DIFFERENCE'; mod.object=cut
     bpy.context.view_layer.objects.active=stem; bpy.ops.object.modifier_apply(modifier=mod.name); bpy.data.objects.remove(cut,do_unlink=True)
     stem.data.update()
     for p in stem.data.polygons:
         p.use_smooth=(abs(p.normal.z)<.5 and math.hypot(p.center.x,p.center.y)>2.6)
     stem['fit_note']='Nominal prototype only. Print fit coupon; compensate for resin shrinkage. Cross 4.20 x 1.30 mm.'
-    shell['dimensions_mm']='18 x 18 skirt; 15 x 15 deck Z=9; wall draft ~8.6 degrees; 19.05 mm pitch; open underside'
+    stem['socket_bottom_z_mm']=SOCKET_BOTTOM; stem['socket_seat_z_mm']=SOCKET_SEAT_Z
+    stem['entry_lead_in_mm']=.10
+    # Four short, high-set radial buttresses spread loads from the mounting boss
+    # into the roof and inner walls. Their sloped lower edges leave the lower
+    # switch-housing cavity open. Keep editable overlaps for fabrication planning.
+    profile=[(2.4,DECK_Z-4.0),(7.1,DECK_Z-2.35),(7.1,DECK_Z-1.7),(2.4,DECK_Z-1.7)]
+    rv=[(x,y,z) for y in (-.55,.55) for x,z in profile]
+    rf=[tuple(range(4)),tuple(reversed(range(4,8)))]
+    rf.extend((j,j+4,(j+1)%4+4,(j+1)%4) for j in range(4))
+    for angle,direction in [(0,'+X'),(math.pi/2,'+Y'),(math.pi,'-X'),(3*math.pi/2,'-Y')]:
+        rib=mesh(label+' | roof buttress '+direction,rv,rf,material,.14)
+        rib.rotation_euler.z=angle
+        rib['engineering_note']='1.10 mm nominal rib; overlaps boss, roof and inner wall. Sloped underside; lowest Z=6.05 mm. Validate full switch travel before fabrication.'
+    shell['shell_height_mm']=SHELL_HEIGHT; shell['deck_z_mm']=DECK_Z; shell['wall_draft_deg']=WALL_DRAFT
+    shell['dimensions_mm']=f'18 x 18 skirt; 15 x 15 deck; physical base height {SHELL_HEIGHT} mm; deck Z={DECK_Z}; wall draft {WALL_DRAFT:.1f} degrees; 19.05 mm pitch; open underside'
     return shell
 
 pitch=19.05
@@ -232,7 +272,7 @@ for i in range(4):
         glazed_prism('DISC | broad porcelain medallion',disc,cream,height=1.5,corner=.8,roll=.6)
         for j,y in enumerate([-.1,-2.95,-5.8]):
             # Buried lower half and generous radius produce almost half-cylinder rails.
-            ob=cube('DISC | pill rail %d'%(j+1),(3.35,y,9.3),(8.3,2.35,2.35),black,1.12)
+            ob=cube('DISC | pill rail %d'%(j+1),(3.35,y,DECK_Z+.3),(8.3,2.35,2.35),black,1.12)
             ob.modifiers['Soft molded edges'].segments=10
     else:
         # Side-elevation icon, one flat top at a single Z, NOT a physical staircase.

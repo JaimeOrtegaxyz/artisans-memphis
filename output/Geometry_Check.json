@@ -5,27 +5,67 @@
     {
       "name": "ARCH | hollow 1u shell",
       "non_manifold_edges": 0,
-      "volume_mm3": 1094.33211,
+      "volume_mm3": 1181.05943,
       "dimensions_mm": [
         18.0,
         18.0,
-        8.75
+        9.8
       ]
     },
     {
       "name": "ARCH | MX socket (prototype)",
       "non_manifold_edges": 0,
-      "volume_mm3": 123.86637,
+      "volume_mm3": 149.62416,
       "dimensions_mm": [
         5.6,
         5.6,
-        6.8
+        7.85
+      ]
+    },
+    {
+      "name": "ARCH | roof buttress +X",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "ARCH | roof buttress +Y",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "ARCH | roof buttress -X",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "ARCH | roof buttress -Y",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
       ]
     },
     {
       "name": "ARCH | concentric teal arch with short legs",
       "non_manifold_edges": 0,
-      "volume_mm3": 125.59431,
+      "volume_mm3": 125.59426,
       "dimensions_mm": [
         14.24,
         9.39,
@@ -45,27 +85,67 @@
     {
       "name": "ZIGZAG | hollow 1u shell",
       "non_manifold_edges": 0,
-      "volume_mm3": 1094.33211,
+      "volume_mm3": 1181.05943,
       "dimensions_mm": [
         18.0,
         18.0,
-        8.75
+        9.8
       ]
     },
     {
       "name": "ZIGZAG | MX socket (prototype)",
       "non_manifold_edges": 0,
-      "volume_mm3": 123.86637,
+      "volume_mm3": 149.62416,
       "dimensions_mm": [
         5.6,
         5.6,
-        6.8
+        7.85
+      ]
+    },
+    {
+      "name": "ZIGZAG | roof buttress +X",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "ZIGZAG | roof buttress +Y",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "ZIGZAG | roof buttress -X",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "ZIGZAG | roof buttress -Y",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
       ]
     },
     {
       "name": "ZIGZAG | low rounded black beam",
       "non_manifold_edges": 0,
-      "volume_mm3": 91.61133,
+      "volume_mm3": 91.61132,
       "dimensions_mm": [
         11.59,
         11.19,
@@ -85,21 +165,61 @@
     {
       "name": "DISC | hollow 1u shell",
       "non_manifold_edges": 0,
-      "volume_mm3": 1094.33211,
+      "volume_mm3": 1181.05943,
       "dimensions_mm": [
         18.0,
         18.0,
-        8.75
+        9.8
       ]
     },
     {
       "name": "DISC | MX socket (prototype)",
       "non_manifold_edges": 0,
-      "volume_mm3": 123.86637,
+      "volume_mm3": 149.62416,
       "dimensions_mm": [
         5.6,
         5.6,
-        6.8
+        7.85
+      ]
+    },
+    {
+      "name": "DISC | roof buttress +X",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "DISC | roof buttress +Y",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "DISC | roof buttress -X",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "DISC | roof buttress -Y",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
       ]
     },
     {
@@ -145,21 +265,61 @@
     {
       "name": "STAIRS | hollow 1u shell",
       "non_manifold_edges": 0,
-      "volume_mm3": 1094.33211,
+      "volume_mm3": 1181.05943,
       "dimensions_mm": [
         18.0,
         18.0,
-        8.75
+        9.8
       ]
     },
     {
       "name": "STAIRS | MX socket (prototype)",
       "non_manifold_edges": 0,
-      "volume_mm3": 123.86637,
+      "volume_mm3": 149.62416,
       "dimensions_mm": [
         5.6,
         5.6,
-        6.8
+        7.85
+      ]
+    },
+    {
+      "name": "STAIRS | roof buttress +X",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "STAIRS | roof buttress +Y",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "STAIRS | roof buttress -X",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
+      ]
+    },
+    {
+      "name": "STAIRS | roof buttress -Y",
+      "non_manifold_edges": 0,
+      "volume_mm3": 7.49289,
+      "dimensions_mm": [
+        4.7,
+        1.1,
+        2.2624
       ]
     },
     {
@@ -171,6 +331,40 @@
         10.74,
         1.77
       ]
+    }
+  ],
+  "engineering_checks": [
+    {
+      "cap": "01 \u2022 ARCH / porcelain + petrol",
+      "base_height_mm": 9.8,
+      "socket_seat_z_mm": 5.1,
+      "socket_mouth_z_mm": 0.4,
+      "roof_rib_count": 4,
+      "pass": true
+    },
+    {
+      "cap": "02 \u2022 ZIGZAG / ochre + violet",
+      "base_height_mm": 9.8,
+      "socket_seat_z_mm": 5.1,
+      "socket_mouth_z_mm": 0.4,
+      "roof_rib_count": 4,
+      "pass": true
+    },
+    {
+      "cap": "03 \u2022 DISC / ultramarine",
+      "base_height_mm": 9.8,
+      "socket_seat_z_mm": 5.1,
+      "socket_mouth_z_mm": 0.4,
+      "roof_rib_count": 4,
+      "pass": true
+    },
+    {
+      "cap": "04 \u2022 STAIRS / vermilion",
+      "base_height_mm": 9.8,
+      "socket_seat_z_mm": 5.1,
+      "socket_mouth_z_mm": 0.4,
+      "roof_rib_count": 4,
+      "pass": true
     }
   ],
   "pass": true
