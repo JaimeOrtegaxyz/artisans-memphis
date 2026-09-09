@@ -1,0 +1,637 @@
+{
+  "units": "millimeters",
+  "note": "Topology checks do not establish switch fit or manufacturability. Separate intersecting colored parts are intentional.",
+  "objects": [
+    {
+      "name": "ARCH | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1238.3222,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "ARCH | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "ARCH | low semicircular teal arch",
+      "non_manifold_edges": 0,
+      "volume_mm3": 82.4095,
+      "dimensions_mm": [
+        14.7409,
+        7.54,
+        1.72
+      ]
+    },
+    {
+      "name": "ARCH | orange hemisphere",
+      "non_manifold_edges": 0,
+      "volume_mm3": 32.6693,
+      "dimensions_mm": [
+        5.0,
+        5.0,
+        2.5
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 00",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00916,
+      "dimensions_mm": [
+        0.8254,
+        0.7522,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 01",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00264,
+      "dimensions_mm": [
+        0.3616,
+        0.495,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 02",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00252,
+      "dimensions_mm": [
+        0.381,
+        0.466,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 03",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00269,
+      "dimensions_mm": [
+        0.4103,
+        0.4535,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 04",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00639,
+      "dimensions_mm": [
+        0.6058,
+        0.7474,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 05",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00421,
+      "dimensions_mm": [
+        0.4993,
+        0.5997,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 06",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00697,
+      "dimensions_mm": [
+        0.6771,
+        0.7099,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 07",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.01111,
+      "dimensions_mm": [
+        0.7983,
+        0.9939,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 08",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00725,
+      "dimensions_mm": [
+        0.7485,
+        0.6563,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 09",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00503,
+      "dimensions_mm": [
+        0.607,
+        0.5617,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 10",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00667,
+      "dimensions_mm": [
+        0.5252,
+        0.8608,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 11",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00579,
+      "dimensions_mm": [
+        0.5099,
+        0.7692,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 12",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00681,
+      "dimensions_mm": [
+        0.6873,
+        0.6796,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 13",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00399,
+      "dimensions_mm": [
+        0.5389,
+        0.5182,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 14",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0068,
+      "dimensions_mm": [
+        0.5707,
+        0.8469,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 15",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00236,
+      "dimensions_mm": [
+        0.3671,
+        0.4543,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 16",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0074,
+      "dimensions_mm": [
+        0.7687,
+        0.688,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 17",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00631,
+      "dimensions_mm": [
+        0.6835,
+        0.6262,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 18",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.01025,
+      "dimensions_mm": [
+        0.9114,
+        0.7903,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 19",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00663,
+      "dimensions_mm": [
+        0.7737,
+        0.5991,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 20",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0039,
+      "dimensions_mm": [
+        0.5966,
+        0.4443,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 21",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.01191,
+      "dimensions_mm": [
+        0.9205,
+        0.8769,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 22",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00597,
+      "dimensions_mm": [
+        0.577,
+        0.726,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 23",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00658,
+      "dimensions_mm": [
+        0.7853,
+        0.5862,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 24",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0119,
+      "dimensions_mm": [
+        1.0744,
+        0.7506,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 25",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0043,
+      "dimensions_mm": [
+        0.5069,
+        0.5975,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 26",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.01122,
+      "dimensions_mm": [
+        0.9611,
+        0.8306,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 27",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00219,
+      "dimensions_mm": [
+        0.3692,
+        0.4238,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 28",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00668,
+      "dimensions_mm": [
+        0.5921,
+        0.7783,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 29",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.01122,
+      "dimensions_mm": [
+        0.9038,
+        0.8796,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 30",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00604,
+      "dimensions_mm": [
+        0.6737,
+        0.6413,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 31",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00751,
+      "dimensions_mm": [
+        0.703,
+        0.7242,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 32",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00325,
+      "dimensions_mm": [
+        0.4523,
+        0.4927,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 33",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00546,
+      "dimensions_mm": [
+        0.6689,
+        0.5634,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 34",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00652,
+      "dimensions_mm": [
+        0.5849,
+        0.7554,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 35",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00921,
+      "dimensions_mm": [
+        0.7739,
+        0.827,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 36",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0026,
+      "dimensions_mm": [
+        0.3946,
+        0.4605,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 37",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.01007,
+      "dimensions_mm": [
+        0.8947,
+        0.7768,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 38",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00487,
+      "dimensions_mm": [
+        0.5746,
+        0.5745,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 39",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00479,
+      "dimensions_mm": [
+        0.5127,
+        0.6649,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 40",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00587,
+      "dimensions_mm": [
+        0.5796,
+        0.7073,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 41",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00982,
+      "dimensions_mm": [
+        0.9131,
+        0.7638,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 42",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.01686,
+      "dimensions_mm": [
+        1.2634,
+        0.9519,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 43",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00197,
+      "dimensions_mm": [
+        0.3276,
+        0.4229,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 44",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0083,
+      "dimensions_mm": [
+        0.7486,
+        0.7519,
+        0.022
+      ]
+    },
+    {
+      "name": "ARCH | ink stain 45",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00725,
+      "dimensions_mm": [
+        0.6533,
+        0.7547,
+        0.022
+      ]
+    },
+    {
+      "name": "ZIGZAG | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1238.3222,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "ZIGZAG | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "ZIGZAG | low rounded black beam",
+      "non_manifold_edges": 0,
+      "volume_mm3": 85.67534,
+      "dimensions_mm": [
+        12.29,
+        11.99,
+        1.67
+      ]
+    },
+    {
+      "name": "ZIGZAG | lilac glazed cylinder",
+      "non_manifold_edges": 0,
+      "volume_mm3": 52.41761,
+      "dimensions_mm": [
+        6.4391,
+        6.4391,
+        1.77
+      ]
+    },
+    {
+      "name": "DISC | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1238.3222,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "DISC | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "DISC | broad porcelain medallion",
+      "non_manifold_edges": 0,
+      "volume_mm3": 57.70756,
+      "dimensions_mm": [
+        7.0391,
+        7.0391,
+        1.62
+      ]
+    },
+    {
+      "name": "DISC | pill rail 1",
+      "non_manifold_edges": 0,
+      "volume_mm3": 30.62937,
+      "dimensions_mm": [
+        8.9,
+        2.15,
+        2.15
+      ]
+    },
+    {
+      "name": "DISC | pill rail 2",
+      "non_manifold_edges": 0,
+      "volume_mm3": 30.62937,
+      "dimensions_mm": [
+        8.9,
+        2.15,
+        2.15
+      ]
+    },
+    {
+      "name": "DISC | pill rail 3",
+      "non_manifold_edges": 0,
+      "volume_mm3": 30.62937,
+      "dimensions_mm": [
+        8.9,
+        2.15,
+        2.15
+      ]
+    },
+    {
+      "name": "STAIRS | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1238.3222,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "STAIRS | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "STAIRS | planar lilac stair silhouette",
+      "non_manifold_edges": 0,
+      "volume_mm3": 218.4401,
+      "dimensions_mm": [
+        14.44,
+        14.44,
+        1.77
+      ]
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,657 @@
+{
+  "units": "millimeters",
+  "note": "Topology checks do not establish switch fit or manufacturability. Separate intersecting colored parts are intentional.",
+  "objects": [
+    {
+      "name": "ARCH | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1238.3222,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "ARCH | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "ARCH | solid teal horseshoe",
+      "non_manifold_edges": 0,
+      "volume_mm3": 157.93419,
+      "dimensions_mm": [
+        12.0,
+        8.8,
+        2.94
+      ]
+    },
+    {
+      "name": "ARCH | orange bead",
+      "non_manifold_edges": 0,
+      "volume_mm3": 30.83829,
+      "dimensions_mm": [
+        3.9,
+        3.9,
+        3.9
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 00",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00153,
+      "dimensions_mm": [
+        0.2958,
+        0.2361,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 01",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00085,
+      "dimensions_mm": [
+        0.1883,
+        0.2024,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 02",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00091,
+      "dimensions_mm": [
+        0.2065,
+        0.1863,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 03",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00272,
+      "dimensions_mm": [
+        0.3406,
+        0.3817,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 04",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00092,
+      "dimensions_mm": [
+        0.2124,
+        0.1962,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 05",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00165,
+      "dimensions_mm": [
+        0.2496,
+        0.3097,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 06",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00285,
+      "dimensions_mm": [
+        0.3662,
+        0.3928,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 07",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00084,
+      "dimensions_mm": [
+        0.1882,
+        0.1942,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 08",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00044,
+      "dimensions_mm": [
+        0.1439,
+        0.1449,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 09",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00034,
+      "dimensions_mm": [
+        0.1262,
+        0.1271,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 10",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00212,
+      "dimensions_mm": [
+        0.3313,
+        0.3263,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 11",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00288,
+      "dimensions_mm": [
+        0.3466,
+        0.3906,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 12",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00054,
+      "dimensions_mm": [
+        0.1569,
+        0.1677,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 13",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00134,
+      "dimensions_mm": [
+        0.2405,
+        0.2429,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 14",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00094,
+      "dimensions_mm": [
+        0.2039,
+        0.233,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 15",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00298,
+      "dimensions_mm": [
+        0.3541,
+        0.4011,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 16",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00161,
+      "dimensions_mm": [
+        0.2821,
+        0.2943,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 17",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00102,
+      "dimensions_mm": [
+        0.215,
+        0.2101,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 18",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00144,
+      "dimensions_mm": [
+        0.28,
+        0.234,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 19",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00168,
+      "dimensions_mm": [
+        0.2414,
+        0.3259,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 20",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00059,
+      "dimensions_mm": [
+        0.1577,
+        0.1823,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 21",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00132,
+      "dimensions_mm": [
+        0.2354,
+        0.2745,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 22",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00085,
+      "dimensions_mm": [
+        0.1978,
+        0.2089,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 23",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00139,
+      "dimensions_mm": [
+        0.2917,
+        0.2381,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 24",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00182,
+      "dimensions_mm": [
+        0.3138,
+        0.2667,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 25",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00262,
+      "dimensions_mm": [
+        0.3499,
+        0.3136,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 26",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00109,
+      "dimensions_mm": [
+        0.2279,
+        0.2246,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 27",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00174,
+      "dimensions_mm": [
+        0.2354,
+        0.2996,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 28",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0006,
+      "dimensions_mm": [
+        0.1848,
+        0.1622,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 29",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00058,
+      "dimensions_mm": [
+        0.183,
+        0.155,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 30",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00046,
+      "dimensions_mm": [
+        0.1511,
+        0.1333,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 31",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00313,
+      "dimensions_mm": [
+        0.413,
+        0.3604,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 32",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00157,
+      "dimensions_mm": [
+        0.2363,
+        0.3145,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 33",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00108,
+      "dimensions_mm": [
+        0.2714,
+        0.1913,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 34",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00136,
+      "dimensions_mm": [
+        0.2415,
+        0.2613,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 35",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00191,
+      "dimensions_mm": [
+        0.2852,
+        0.295,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 36",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0009,
+      "dimensions_mm": [
+        0.2177,
+        0.2151,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 37",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00202,
+      "dimensions_mm": [
+        0.317,
+        0.2636,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 38",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0013,
+      "dimensions_mm": [
+        0.2566,
+        0.2449,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 39",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0017,
+      "dimensions_mm": [
+        0.3216,
+        0.2488,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 40",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00133,
+      "dimensions_mm": [
+        0.2688,
+        0.2199,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 41",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00184,
+      "dimensions_mm": [
+        0.2928,
+        0.2753,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 42",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00225,
+      "dimensions_mm": [
+        0.2863,
+        0.3311,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 43",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00068,
+      "dimensions_mm": [
+        0.1792,
+        0.1519,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 44",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00144,
+      "dimensions_mm": [
+        0.241,
+        0.2677,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 45",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00249,
+      "dimensions_mm": [
+        0.3072,
+        0.4011,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 46",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.00123,
+      "dimensions_mm": [
+        0.2423,
+        0.2218,
+        0.033
+      ]
+    },
+    {
+      "name": "ARCH | terrazzo 47",
+      "non_manifold_edges": 0,
+      "volume_mm3": 0.0028,
+      "dimensions_mm": [
+        0.3737,
+        0.3691,
+        0.033
+      ]
+    },
+    {
+      "name": "ZIGZAG | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1238.3222,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "ZIGZAG | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "ZIGZAG | black stepped beam",
+      "non_manifold_edges": 0,
+      "volume_mm3": 84.72871,
+      "dimensions_mm": [
+        9.8,
+        9.3,
+        2.43
+      ]
+    },
+    {
+      "name": "ZIGZAG | violet bead",
+      "non_manifold_edges": 0,
+      "volume_mm3": 64.98402,
+      "dimensions_mm": [
+        5.0,
+        5.0,
+        5.0
+      ]
+    },
+    {
+      "name": "DISC | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1238.3222,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "DISC | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "DISC | porcelain medallion",
+      "non_manifold_edges": 0,
+      "volume_mm3": 45.67528,
+      "dimensions_mm": [
+        5.5,
+        5.5,
+        1.95
+      ]
+    },
+    {
+      "name": "DISC | black rail 1",
+      "non_manifold_edges": 0,
+      "volume_mm3": 15.94283,
+      "dimensions_mm": [
+        6.35,
+        1.35,
+        1.95
+      ]
+    },
+    {
+      "name": "DISC | black rail 2",
+      "non_manifold_edges": 0,
+      "volume_mm3": 15.94283,
+      "dimensions_mm": [
+        6.35,
+        1.35,
+        1.95
+      ]
+    },
+    {
+      "name": "DISC | black rail 3",
+      "non_manifold_edges": 0,
+      "volume_mm3": 15.94283,
+      "dimensions_mm": [
+        6.35,
+        1.35,
+        1.95
+      ]
+    },
+    {
+      "name": "STAIRS | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1238.3222,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "STAIRS | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "STAIRS | continuous lavender staircase",
+      "non_manifold_edges": 0,
+      "volume_mm3": 180.55552,
+      "dimensions_mm": [
+        10.6,
+        9.9,
+        3.42
+      ]
+    }
+  ],
+  "pass": true
+}

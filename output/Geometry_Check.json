@@ -1,0 +1,177 @@
+{
+  "units": "millimeters",
+  "note": "Topology checks do not establish switch fit or manufacturability. Separate intersecting colored parts are intentional.",
+  "objects": [
+    {
+      "name": "ARCH | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1094.33211,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "ARCH | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "ARCH | concentric teal arch with short legs",
+      "non_manifold_edges": 0,
+      "volume_mm3": 125.59431,
+      "dimensions_mm": [
+        14.24,
+        9.39,
+        1.72
+      ]
+    },
+    {
+      "name": "ARCH | orange hemisphere",
+      "non_manifold_edges": 0,
+      "volume_mm3": 32.6693,
+      "dimensions_mm": [
+        5.0,
+        5.0,
+        2.5
+      ]
+    },
+    {
+      "name": "ZIGZAG | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1094.33211,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "ZIGZAG | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "ZIGZAG | low rounded black beam",
+      "non_manifold_edges": 0,
+      "volume_mm3": 91.61133,
+      "dimensions_mm": [
+        11.59,
+        11.19,
+        1.67
+      ]
+    },
+    {
+      "name": "ZIGZAG | lilac glazed cylinder",
+      "non_manifold_edges": 0,
+      "volume_mm3": 65.03722,
+      "dimensions_mm": [
+        7.1391,
+        7.1391,
+        1.77
+      ]
+    },
+    {
+      "name": "DISC | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1094.33211,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "DISC | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "DISC | broad porcelain medallion",
+      "non_manifold_edges": 0,
+      "volume_mm3": 62.95844,
+      "dimensions_mm": [
+        7.3391,
+        7.3391,
+        1.62
+      ]
+    },
+    {
+      "name": "DISC | pill rail 1",
+      "non_manifold_edges": 0,
+      "volume_mm3": 33.55448,
+      "dimensions_mm": [
+        8.3,
+        2.35,
+        2.35
+      ]
+    },
+    {
+      "name": "DISC | pill rail 2",
+      "non_manifold_edges": 0,
+      "volume_mm3": 33.55448,
+      "dimensions_mm": [
+        8.3,
+        2.35,
+        2.35
+      ]
+    },
+    {
+      "name": "DISC | pill rail 3",
+      "non_manifold_edges": 0,
+      "volume_mm3": 33.55448,
+      "dimensions_mm": [
+        8.3,
+        2.35,
+        2.35
+      ]
+    },
+    {
+      "name": "STAIRS | hollow 1u shell",
+      "non_manifold_edges": 0,
+      "volume_mm3": 1094.33211,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        8.75
+      ]
+    },
+    {
+      "name": "STAIRS | MX socket (prototype)",
+      "non_manifold_edges": 0,
+      "volume_mm3": 123.86637,
+      "dimensions_mm": [
+        5.6,
+        5.6,
+        6.8
+      ]
+    },
+    {
+      "name": "STAIRS | planar lilac stair silhouette",
+      "non_manifold_edges": 0,
+      "volume_mm3": 121.04812,
+      "dimensions_mm": [
+        10.74,
+        10.74,
+        1.77
+      ]
+    }
+  ],
+  "pass": true
+}
