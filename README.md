@@ -30,6 +30,27 @@ Collections **01–04** contain one keycap each. Collection **05** contains the 
 
 ![Hollow shells and prototype MX-style sockets](output/Memphis_Underside.png)
 
+## Per-keycap overview drawings
+
+One 2400 × 1800 PNG per cap, with top, front, right-side, and underside views plus a few overall dimensions:
+
+- [01 — Arch + dome](output/drawings/01_ARCH_DOME.png)
+- [02 — Zigzag + cylinder](output/drawings/02_ZIGZAG_CYLINDER.png)
+- [03 — Disc + rails](output/drawings/03_DISC_RAILS.png)
+- [04 — Stair silhouette](output/drawings/04_STAIR_SILHOUETTE.png)
+
+These are simple orthographic design references, **not manufacturing drawings**. Glaze patterns are omitted for clarity, and socket recesses use an illustrative darker tint. Height dimensions are measured from the lowest modeled skirt edge, not the scene's Z = 0 datum. Images carry 300 DPI metadata, but their displayed/printed scale is not fixed.
+
+To regenerate from the saved `.blend` without modifying it:
+
+```sh
+blender --background output/Memphis_Artisans.blend --python render_drawings.py
+python3 -m pip install Pillow
+python3 compose_drawings.py
+```
+
+Blender produces intermediate views in `output/drawings/_views/` (git-ignored); Pillow composes the four final sheets. `output/drawings/dimensions.json` records the measured overall heights and view metadata.
+
 ## Dimensions and prototype status
 
 | Feature | Nominal dimension |
@@ -87,12 +108,15 @@ artisans-memphis-creative-brief.md       Original written concept
 artisans-memphis-render.png             Original visual reference
 build_memphis.py                       Scene and render generator
 validate_memphis.py                    Component topology audit
+render_drawings.py                     Isolated orthographic view renderer
+compose_drawings.py                    Per-keycap drawing sheet compositor
 output/
   Memphis_Artisans.blend               Current editable Blender scene
   Memphis_Artisans.png                 Three-quarter render
   Memphis_Top.png                      Straight-down layout view
   Memphis_Underside.png                Underside inspection render
   Geometry_Check.json                 Geometry audit results
+  drawings/                           Four overview sheets and dimension metadata
   v1/                                 First modeled iteration
   v2/                                 Second modeled iteration
 ```

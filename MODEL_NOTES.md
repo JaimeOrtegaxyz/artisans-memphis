@@ -5,6 +5,8 @@
 - `output/Memphis_Artisans.png` — hero render.
 - `output/Memphis_Underside.png` — socket/cavity inspection render.
 - `output/Memphis_Top.png` — straight-down layout review.
+- `output/drawings/01_*.png` through `04_*.png` — one overview sheet per keycap, with top/front/right/underside views and a few dimensions. Heights measure from the modeled skirt bottom (Z = 0.25), so the shell reads 8.75 mm and the tallest dome cap 11.25 mm overall. These are non-toleranced design references, not manufacturing drawings.
+- `render_drawings.py` / `compose_drawings.py` — regenerate drawing sheets from the saved scene using Blender Workbench and Pillow. The drawing renderer does not save changes to the model.
 - `output/v1/`, `output/v2/` — preserved earlier scenes, renders, generators and notes.
 - `build_memphis.py` — deterministic Blender 4.3+ scene generator.
 - `validate_memphis.py` / `output/Geometry_Check.json` — evaluated-mesh topology audit. All 17 design meshes passed: no non-manifold edges and positive signed volumes. This tests individual parts, not an assembled printable union.

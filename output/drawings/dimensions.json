@@ -1,0 +1,70 @@
+[
+  {
+    "number": "01",
+    "title": "Arch + dome",
+    "slug": "ARCH_DOME",
+    "ortho_scale_mm": 24,
+    "view_pixels": 800,
+    "overall_height_mm": 11.25,
+    "shell_height_mm": 8.75,
+    "footprint_mm": 18,
+    "deck_mm": 15,
+    "views": {
+      "top": "_views/ARCH_DOME_top.png",
+      "front": "_views/ARCH_DOME_front.png",
+      "right": "_views/ARCH_DOME_right.png",
+      "underside": "_views/ARCH_DOME_underside.png"
+    }
+  },
+  {
+    "number": "02",
+    "title": "Zigzag + cylinder",
+    "slug": "ZIGZAG_CYLINDER",
+    "ortho_scale_mm": 24,
+    "view_pixels": 800,
+    "overall_height_mm": 10.4,
+    "shell_height_mm": 8.75,
+    "footprint_mm": 18,
+    "deck_mm": 15,
+    "views": {
+      "top": "_views/ZIGZAG_CYLINDER_top.png",
+      "front": "_views/ZIGZAG_CYLINDER_front.png",
+      "right": "_views/ZIGZAG_CYLINDER_right.png",
+      "underside": "_views/ZIGZAG_CYLINDER_underside.png"
+    }
+  },
+  {
+    "number": "03",
+    "title": "Disc + rails",
+    "slug": "DISC_RAILS",
+    "ortho_scale_mm": 24,
+    "view_pixels": 800,
+    "overall_height_mm": 10.25,
+    "shell_height_mm": 8.75,
+    "footprint_mm": 18,
+    "deck_mm": 15,
+    "views": {
+      "top": "_views/DISC_RAILS_top.png",
+      "front": "_views/DISC_RAILS_front.png",
+      "right": "_views/DISC_RAILS_right.png",
+      "underside": "_views/DISC_RAILS_underside.png"
+    }
+  },
+  {
+    "number": "04",
+    "title": "Stair silhouette",
+    "slug": "STAIR_SILHOUETTE",
+    "ortho_scale_mm": 24,
+    "view_pixels": 800,
+    "overall_height_mm": 10.4,
+    "shell_height_mm": 8.75,
+    "footprint_mm": 18,
+    "deck_mm": 15,
+    "views": {
+      "top": "_views/STAIR_SILHOUETTE_top.png",
+      "front": "_views/STAIR_SILHOUETTE_front.png",
+      "right": "_views/STAIR_SILHOUETTE_right.png",
+      "underside": "_views/STAIR_SILHOUETTE_underside.png"
+    }
+  }
+]

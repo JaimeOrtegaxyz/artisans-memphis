@@ -5,3 +5,4 @@ __pycache__/
 *.blend[0-9]*
 *.blend@
 *.log
+output/drawings/_views/
