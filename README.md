@@ -27,9 +27,13 @@ The **plain base is 9.8 mm tall**; the decoration sits above it. Each hollow bas
 | [Disc + rails](output/print/03_DISC_RAILS.stl) | Complete single-piece cap | 11.30 mm |
 | [Stair silhouette](output/print/04_STAIR_SILHOUETTE.stl) | Complete single-piece cap | 11.45 mm |
 
+### Full-color files
+
+[output/color/](output/color/) holds the same five parts as **OBJ + MTL + PNG** for full-color printing (e.g. PolyJet). Every material color, including the procedural black porcelain patches, is baked into one 4096 px texture per part. Geometry and placement match the STLs: millimeters, Z up, skirt bottom at Z = 0. Keep each `.obj`, `.mtl` and `.png` together. [Color_Check.json](output/color/Color_Check.json) records the mesh audit, and [Color_Preview.png](output/color/Color_Preview.png) renders the textured parts for comparison with the hero render.
+
 STL coordinates are **millimeters**, centered in X/Y with the skirt bottom at Z = 0. Import at **100% scale** and check for an 18 × 18 mm footprint. Each export is a boolean-joined, single-component closed mesh; [Print_Check.json](output/print/Print_Check.json) records the topology audit.
 
-**These remain test-print prototypes, not production-ready keycaps.** Watertight geometry does not establish switch fit, material strength, shrinkage compensation, or print orientation. Never force a tight socket onto a switch. The STL files have **no colors or black stain pattern**: paint a single-material print, or use the Blender scene to plan a separate multicolor process. Choose supports and orientation in your slicer; the internal ribs are structural parts, not removable print supports.
+**These remain test-print prototypes, not production-ready keycaps.** Watertight geometry does not establish switch fit, material strength, shrinkage compensation, or print orientation. Never force a tight socket onto a switch. The STL files have **no colors or black stain pattern**: paint a single-material print, or use the full-color OBJ set. Choose supports and orientation in your slicer; the internal ribs are structural parts, not removable print supports.
 
 ## Open and edit
 
@@ -88,20 +92,22 @@ blender -b output/Memphis_Artisans.blend --python validate_memphis.py
 blender -b output/Memphis_Artisans.blend --python render_drawings.py
 python compose_drawings.py
 blender -b output/Memphis_Artisans.blend --python export_prints.py
+blender -b output/Memphis_Artisans.blend --python export_color.py
 python -m unittest discover -s tests -v
 ```
 
 On macOS, substitute `/Applications/Blender.app/Contents/MacOS/Blender` for `blender`. On a headless Linux machine, run the drawing-render command under `xvfb-run -a` with Mesa/OpenGL available. Use `MEMPHIS_DRAFT=1 blender -b --python build_memphis.py` for faster 900 px preview renders.
 
-**Rebuilding replaces generated outputs. Save manual edits elsewhere first.** Expected results are one editable scene, three renders, four drawing sheets, five STLs, and geometry/print audit reports. Geometry checks do not simulate switch travel or material strength.
+**Rebuilding replaces generated outputs. Save manual edits elsewhere first.** Expected results are one editable scene, three renders, four drawing sheets, five STLs, five textured OBJ sets, and geometry/print/color audit reports. Geometry checks do not simulate switch travel or material strength.
 
 ## Project files
 
 - `build_memphis.py` — model, materials, and render generator.
 - `render_drawings.py` / `compose_drawings.py` — orthographic views and drawing sheets.
 - `export_prints.py` — joined STL exports and print-mesh audit.
+- `export_color.py` — joined full-color OBJ + MTL + PNG exports, texture bake, and audit.
 - `validate_memphis.py` / `tests/` — component, dimension, and release-asset checks.
-- `output/` — Blender scene and renders; `drawings/` and `print/` contain the downloadable sheets and STLs.
+- `output/` — Blender scene and renders; `drawings/`, `print/` and `color/` contain the downloadable sheets and STLs.
 - [Creative brief](artisans-memphis-creative-brief.md) · [Visual reference](artisans-memphis-render.png) · [Technical notes](MODEL_NOTES.md).
 
 ## Contributing and license

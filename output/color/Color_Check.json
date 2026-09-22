@@ -1,0 +1,90 @@
+{
+  "units": "mm",
+  "axes": "Z up, skirt bottom at Z=0 (same placement as the STLs)",
+  "texture_px": 4096,
+  "physical_fit_validated": false,
+  "note": "Colors are baked from the Blender materials. Closed-mesh checks do not establish switch fit or printability.",
+  "files": [
+    {
+      "file": "00_BASE_FIT_TEST.obj",
+      "material": "00_BASE_FIT_TEST.mtl",
+      "texture": "00_BASE_FIT_TEST.png",
+      "triangles": 5976,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1350.7913,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        9.8
+      ],
+      "pass": true
+    },
+    {
+      "file": "01_ARCH_DOME.obj",
+      "material": "01_ARCH_DOME.mtl",
+      "texture": "01_ARCH_DOME.png",
+      "triangles": 16966,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1499.444,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        12.3
+      ],
+      "pass": true
+    },
+    {
+      "file": "02_ZIGZAG_CYLINDER.obj",
+      "material": "02_ZIGZAG_CYLINDER.mtl",
+      "texture": "02_ZIGZAG_CYLINDER.png",
+      "triangles": 38414,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1495.3548,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        11.45
+      ],
+      "pass": true
+    },
+    {
+      "file": "03_DISC_RAILS.obj",
+      "material": "03_DISC_RAILS.mtl",
+      "texture": "03_DISC_RAILS.png",
+      "triangles": 38436,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1475.4266,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        11.3
+      ],
+      "pass": true
+    },
+    {
+      "file": "04_STAIR_SILHOUETTE.obj",
+      "material": "04_STAIR_SILHOUETTE.mtl",
+      "texture": "04_STAIR_SILHOUETTE.png",
+      "triangles": 9036,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "degenerate_triangles": 0,
+      "volume_mm3": 1462.973,
+      "dimensions_mm": [
+        18.0,
+        18.0,
+        11.45
+      ],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

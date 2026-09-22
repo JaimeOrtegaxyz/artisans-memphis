@@ -52,7 +52,7 @@ The exporter evaluates modifiers, boolean-unions the pieces, triangulates, and c
 2. Test the full switch stroke. Pay particular attention to housing contact with ribs, skirt clearance, and neighboring caps. Compare the plain deck—not the ornaments—to your keyboard's key heights.
 3. Tune socket dimensions for the switch, printer accuracy, resin shrinkage, and curing. Use fine-detail printing suitable for small MX recesses. Avoid blindly scaling the whole cap: that also changes its footprint and height.
 4. Choose orientation and temporary supports in the slicer. Protect the socket opening and top finish; ensure uncured resin can drain from the open cavity. Follow the resin/printer manufacturer's handling and curing instructions.
-5. STL does not preserve colors or procedural patches. Paint a single-material print, or design a separate multi-part/multicolor process from the Blender scene. A press-fit colored assembly needs its own pockets, alignment features, and clearances.
+5. STL does not preserve colors or procedural patches. Paint a single-material print, or send the baked OBJ + MTL + PNG set in `output/color/` to a full-color printer. A press-fit colored assembly needs its own pockets, alignment features, and clearances.
 6. If editing the model, regenerate exports and audit them again. Do not export the studio or mistake the editable overlapping parts for the already-joined print meshes.
 
 ## Files and regeneration
@@ -64,5 +64,7 @@ The exporter evaluates modifiers, boolean-unions the pieces, triangulates, and c
 - `build_memphis.py` — regenerates the scene and renders.
 - `render_drawings.py` / `compose_drawings.py` — regenerate drawing sheets without saving changes to the source model.
 - `export_prints.py` — regenerates joined print meshes without modifying the source model.
+- `export_color.py` — regenerates the full-color OBJ + MTL + PNG set (baked textures) without modifying the source model.
+- `output/color/` — five textured OBJ sets, color audit, and preview render.
 
 See the [README](README.md) for complete setup and validation commands. Regeneration overwrites outputs; save manual work elsewhere first.

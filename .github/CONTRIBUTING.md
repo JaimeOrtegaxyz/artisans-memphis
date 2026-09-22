@@ -12,6 +12,7 @@ blender -b output/Memphis_Artisans.blend --python validate_memphis.py
 blender -b output/Memphis_Artisans.blend --python render_drawings.py
 python compose_drawings.py
 blender -b output/Memphis_Artisans.blend --python export_prints.py
+blender -b output/Memphis_Artisans.blend --python export_color.py
 python -m unittest discover -s tests -v
 ```
 

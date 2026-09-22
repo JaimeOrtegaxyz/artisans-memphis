@@ -46,7 +46,7 @@ class ReleaseTests(unittest.TestCase):
             path=OUT/'drawings'/(row['number']+'_'+row['slug']+'.png')
             with Image.open(path) as im:
                 self.assertEqual(im.size,(2400,1800)); im.verify()
-        self.assertLessEqual({p.name for p in OUT.iterdir() if p.is_dir()},{'drawings','print'})
+        self.assertLessEqual({p.name for p in OUT.iterdir() if p.is_dir()},{'drawings','print','color'})
 
     def test_renders_and_scene(self):
         for name in ('Memphis_Artisans.png','Memphis_Top.png','Memphis_Underside.png'):
@@ -93,6 +93,23 @@ class ReleaseTests(unittest.TestCase):
                 for actual,expected in zip([b-a for a,b in zip(mins,maxs)],[18,18,height]):
                     self.assertAlmostEqual(actual,expected,places=3)
                 self.assertAlmostEqual(mins[2],0,places=4)
+
+    def test_color_package(self):
+        report=json.loads((OUT/'color'/'Color_Check.json').read_text())
+        self.assertTrue(report['pass']); self.assertFalse(report['physical_fit_validated'])
+        self.assertEqual(report['units'],'mm')
+        for filename,height in HEIGHTS.items():
+            stem=filename[:-4]
+            with self.subTest(file=stem):
+                row=next(r for r in report['files'] if r['file']==stem+'.obj')
+                self.assertTrue(row['pass']); self.assertEqual(row['degenerate_triangles'],0)
+                self.assertEqual(row['connected_components'],1)
+                for actual,expected in zip(row['dimensions_mm'],[18,18,height]): self.assertAlmostEqual(actual,expected,places=3)
+                obj=(OUT/'color'/(stem+'.obj')).read_text()
+                self.assertIn('mtllib '+stem+'.mtl',obj); self.assertIn('\nvt ',obj)
+                self.assertIn('map_Kd '+stem+'.png',(OUT/'color'/(stem+'.mtl')).read_text())
+                with Image.open(OUT/'color'/(stem+'.png')) as im:
+                    self.assertEqual(im.size,(report['texture_px'],)*2); im.verify()
 
     def test_document_links(self):
         docs=list(ROOT.glob('*.md'))+list((ROOT/'.github').glob('*.md'))
