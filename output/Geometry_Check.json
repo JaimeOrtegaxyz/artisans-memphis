@@ -15,10 +15,10 @@
     {
       "name": "ARCH | MX socket (prototype)",
       "non_manifold_edges": 0,
-      "volume_mm3": 149.62416,
+      "volume_mm3": 147.39657,
       "dimensions_mm": [
-        5.6,
-        5.6,
+        5.5,
+        5.5,
         7.85
       ]
     },
@@ -95,10 +95,10 @@
     {
       "name": "ZIGZAG | MX socket (prototype)",
       "non_manifold_edges": 0,
-      "volume_mm3": 149.62416,
+      "volume_mm3": 147.39657,
       "dimensions_mm": [
-        5.6,
-        5.6,
+        5.5,
+        5.5,
         7.85
       ]
     },
@@ -175,10 +175,10 @@
     {
       "name": "DISC | MX socket (prototype)",
       "non_manifold_edges": 0,
-      "volume_mm3": 149.62416,
+      "volume_mm3": 147.39657,
       "dimensions_mm": [
-        5.6,
-        5.6,
+        5.5,
+        5.5,
         7.85
       ]
     },
@@ -275,10 +275,10 @@
     {
       "name": "STAIRS | MX socket (prototype)",
       "non_manifold_edges": 0,
-      "volume_mm3": 149.62416,
+      "volume_mm3": 147.39657,
       "dimensions_mm": [
-        5.6,
-        5.6,
+        5.5,
+        5.5,
         7.85
       ]
     },
@@ -337,32 +337,48 @@
     {
       "cap": "01 \u2022 ARCH / porcelain + petrol",
       "base_height_mm": 9.8,
-      "socket_seat_z_mm": 5.1,
+      "socket_seat_z_mm": 4.6,
       "socket_mouth_z_mm": 0.4,
+      "cross_length_mm": 4.2,
+      "cross_arm_x_mm": 1.35,
+      "cross_arm_y_mm": 1.2,
+      "boss_d_mm": 5.5,
       "roof_rib_count": 4,
       "pass": true
     },
     {
       "cap": "02 \u2022 ZIGZAG / ochre + violet",
       "base_height_mm": 9.8,
-      "socket_seat_z_mm": 5.1,
+      "socket_seat_z_mm": 4.6,
       "socket_mouth_z_mm": 0.4,
+      "cross_length_mm": 4.2,
+      "cross_arm_x_mm": 1.35,
+      "cross_arm_y_mm": 1.2,
+      "boss_d_mm": 5.5,
       "roof_rib_count": 4,
       "pass": true
     },
     {
       "cap": "03 \u2022 DISC / ultramarine",
       "base_height_mm": 9.8,
-      "socket_seat_z_mm": 5.1,
+      "socket_seat_z_mm": 4.6,
       "socket_mouth_z_mm": 0.4,
+      "cross_length_mm": 4.2,
+      "cross_arm_x_mm": 1.35,
+      "cross_arm_y_mm": 1.2,
+      "boss_d_mm": 5.5,
       "roof_rib_count": 4,
       "pass": true
     },
     {
       "cap": "04 \u2022 STAIRS / vermilion",
       "base_height_mm": 9.8,
-      "socket_seat_z_mm": 5.1,
+      "socket_seat_z_mm": 4.6,
       "socket_mouth_z_mm": 0.4,
+      "cross_length_mm": 4.2,
+      "cross_arm_x_mm": 1.35,
+      "cross_arm_y_mm": 1.2,
+      "boss_d_mm": 5.5,
       "roof_rib_count": 4,
       "pass": true
     }

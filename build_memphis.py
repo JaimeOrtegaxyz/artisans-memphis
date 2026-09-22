@@ -16,11 +16,21 @@ SKIRT_BOTTOM=.25
 SHELL_HEIGHT=9.8
 DECK_Z=SKIRT_BOTTOM+SHELL_HEIGHT
 SOCKET_BOTTOM=.4
-SOCKET_SEAT_Z=5.1
+# MX cross socket. Horizontal (X) and vertical (Y) arms are tuned separately:
+# measured switch stems are ~1.25-1.32 mm (X arm) and ~1.05-1.10 mm (Y arm) thick.
+CROSS_LENGTH=4.20
+CROSS_ARM_X=1.35
+CROSS_ARM_Y=1.20
+CROSS_TIP_RADIUS=.10
+SOCKET_DEPTH=4.20
+SOCKET_SEAT_Z=SOCKET_BOTTOM+SOCKET_DEPTH
+LEAD_IN=.30
+BOSS_D=5.5
 WALL_DRAFT=math.degrees(math.atan(1.2/(DECK_Z-.35-.7)))
 scene['shell_height_mm']=SHELL_HEIGHT
 scene['deck_z_mm']=DECK_Z
 scene['wall_draft_deg']=WALL_DRAFT
+scene['socket']={'cross_length_mm':CROSS_LENGTH,'arm_x_mm':CROSS_ARM_X,'arm_y_mm':CROSS_ARM_Y,'depth_mm':SOCKET_DEPTH,'mouth_z_mm':SOCKET_BOTTOM,'seat_z_mm':SOCKET_SEAT_Z,'lead_in_mm':LEAD_IN,'boss_d_mm':BOSS_D}
 scene['height_reference']='9.8 mm plain deck target, informed by GMK-based KeyV2 Cherry R1 and owner measurement; not a certified Cherry specification.'
 
 def collection(name):
@@ -203,28 +213,42 @@ def base(label,material):
     fs.append(tuple(range((len(order)-1)*n,len(order)*n)))
     shell=mesh(label+' | hollow 1u shell',vs,fs,material,.16)
     boss_top=DECK_Z-1.8
-    stem=cylinder(label+' | MX socket (prototype)',(0,0,(SOCKET_BOTTOM+boss_top)/2),2.8,boss_top-SOCKET_BOTTOM,material,.12)
+    stem=cylinder(label+' | MX socket (prototype)',(0,0,(SOCKET_BOTTOM+boss_top)/2),BOSS_D/2,boss_top-SOCKET_BOTTOM,material,.12)
     # Apply bevel before cross subtraction, leaving the nominal slot dimensions precise.
     bpy.context.view_layer.objects.active=stem
     for m in list(stem.modifiers): bpy.ops.object.modifier_apply(modifier=m.name)
-    # A short 0.10 mm / 45-degree entry lead-in eases alignment without changing
-    # the nominal 4.20 x 1.30 mm engagement section or the fixed seating depth.
-    def plus(a,b):
-        return [(-b,-a),(b,-a),(b,-b),(a,-b),(a,b),(b,b),(b,a),(-b,a),(-b,b),(-a,b),(-a,-b),(-b,-b)]
-    cut_rings=[(-.2,2.20,.75),(SOCKET_BOTTOM,2.20,.75),(SOCKET_BOTTOM+.10,2.10,.65),(SOCKET_SEAT_Z,2.10,.65)]
-    cv=[(x,y,z) for z,a,b in cut_rings for x,y in plus(a,b)]
-    cf=[tuple(reversed(range(12))),tuple(range(36,48))]
-    for k in range(3): cf.extend((k*12+j,k*12+(j+1)%12,(k+1)*12+(j+1)%12,(k+1)*12+j) for j in range(12))
+    # A 45-degree entry chamfer eases alignment above the nominal engagement section.
+    # Arm-tip corners are rounded: they are re-entrant corners of the boss, where cracks start.
+    def plus(a,bx,by,r,segments=4):
+        # CCW cross outline; a = half length, bx/by = half widths of the X/Y arms.
+        pts=[]
+        def tip(cx,cy,start):
+            for j in range(segments+1):
+                t=math.radians(start+90*j/segments); pts.append((cx+r*math.cos(t),cy+r*math.sin(t)))
+        tip(a-r,-bx+r,-90); tip(a-r,bx-r,0); pts.append((by,bx))
+        tip(by-r,a-r,0); tip(-by+r,a-r,90); pts.append((-by,bx))
+        tip(-a+r,bx-r,90); tip(-a+r,-bx+r,180); pts.append((-by,-bx))
+        tip(-by+r,-a+r,180); tip(by-r,-a+r,270); pts.append((by,-bx))
+        return pts
+    half=(CROSS_LENGTH/2,CROSS_ARM_X/2,CROSS_ARM_Y/2)
+    def ring(z,grow):
+        return [(x,y,z) for x,y in plus(*(h+grow for h in half),CROSS_TIP_RADIUS+grow)]
+    # The chamfer cone starts 0.1 mm below the boss so it crosses the bottom face
+    # instead of lying coplanar with it (coplanar cuts leave zero-area slivers).
+    cut_rings=[ring(SOCKET_BOTTOM-.1,LEAD_IN+.1),ring(SOCKET_BOTTOM+LEAD_IN,0),ring(SOCKET_SEAT_Z,0)]
+    n=len(cut_rings[0]); cv=sum(cut_rings,[]); last=len(cut_rings)-1
+    cf=[tuple(reversed(range(n))),tuple(range(last*n,(last+1)*n))]
+    for k in range(last): cf.extend((k*n+j,k*n+(j+1)%n,(k+1)*n+(j+1)%n,(k+1)*n+j) for j in range(n))
     cut=mesh('temporary cross cutter',cv,cf,None)
     cut.modifiers.clear()
-    mod=stem.modifiers.new('MX cross • 4.20 × 1.30 mm • depth 4.70','BOOLEAN'); mod.operation='DIFFERENCE'; mod.object=cut
+    mod=stem.modifiers.new(f'MX cross • {CROSS_LENGTH:.2f} × {CROSS_ARM_X:.2f}/{CROSS_ARM_Y:.2f} mm • depth {SOCKET_DEPTH:.2f}','BOOLEAN'); mod.operation='DIFFERENCE'; mod.object=cut
     bpy.context.view_layer.objects.active=stem; bpy.ops.object.modifier_apply(modifier=mod.name); bpy.data.objects.remove(cut,do_unlink=True)
     stem.data.update()
     for p in stem.data.polygons:
-        p.use_smooth=(abs(p.normal.z)<.5 and math.hypot(p.center.x,p.center.y)>2.6)
-    stem['fit_note']='Nominal prototype only. Print fit coupon; compensate for resin shrinkage. Cross 4.20 x 1.30 mm.'
+        p.use_smooth=(abs(p.normal.z)<.5 and math.hypot(p.center.x,p.center.y)>BOSS_D/2-.2)
+    stem['fit_note']=f'Nominal prototype only; not physically fit-tested. Cross {CROSS_LENGTH:.2f} mm long, X arm {CROSS_ARM_X:.2f} mm, Y arm {CROSS_ARM_Y:.2f} mm, depth {SOCKET_DEPTH:.2f} mm; boss {BOSS_D:.2f} mm.'
     stem['socket_bottom_z_mm']=SOCKET_BOTTOM; stem['socket_seat_z_mm']=SOCKET_SEAT_Z
-    stem['entry_lead_in_mm']=.10
+    stem['entry_lead_in_mm']=LEAD_IN
     # Four short, high-set radial buttresses spread loads from the mounting boss
     # into the roof and inner walls. Their sloped lower edges leave the lower
     # switch-housing cavity open. Keep editable overlaps for fabrication planning.

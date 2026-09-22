@@ -5,11 +5,11 @@
   "files": [
     {
       "file": "00_BASE_FIT_TEST.stl",
-      "triangles": 5780,
+      "triangles": 5976,
       "non_manifold_edges": 0,
       "connected_components": 1,
       "degenerate_triangles": 0,
-      "volume_mm3": 1352.5301,
+      "volume_mm3": 1350.7913,
       "dimensions_mm": [
         18.0,
         18.0,
@@ -20,11 +20,11 @@
     },
     {
       "file": "01_ARCH_DOME.stl",
-      "triangles": 16770,
+      "triangles": 16966,
       "non_manifold_edges": 0,
       "connected_components": 1,
       "degenerate_triangles": 0,
-      "volume_mm3": 1501.1827,
+      "volume_mm3": 1499.444,
       "dimensions_mm": [
         18.0,
         18.0,
@@ -35,11 +35,11 @@
     },
     {
       "file": "02_ZIGZAG_CYLINDER.stl",
-      "triangles": 38218,
+      "triangles": 38414,
       "non_manifold_edges": 0,
       "connected_components": 1,
       "degenerate_triangles": 0,
-      "volume_mm3": 1497.0935,
+      "volume_mm3": 1495.3548,
       "dimensions_mm": [
         18.0,
         18.0,
@@ -50,11 +50,11 @@
     },
     {
       "file": "03_DISC_RAILS.stl",
-      "triangles": 38240,
+      "triangles": 38436,
       "non_manifold_edges": 0,
       "connected_components": 1,
       "degenerate_triangles": 0,
-      "volume_mm3": 1477.1653,
+      "volume_mm3": 1475.4266,
       "dimensions_mm": [
         18.0,
         18.0,
@@ -65,11 +65,11 @@
     },
     {
       "file": "04_STAIR_SILHOUETTE.stl",
-      "triangles": 8840,
+      "triangles": 9036,
       "non_manifold_edges": 0,
       "connected_components": 1,
       "degenerate_triangles": 0,
-      "volume_mm3": 1464.7117,
+      "volume_mm3": 1462.973,
       "dimensions_mm": [
         18.0,
         18.0,

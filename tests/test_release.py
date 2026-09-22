@@ -29,8 +29,12 @@ class ReleaseTests(unittest.TestCase):
             self.assertTrue(check['pass'])
             self.assertAlmostEqual(check['base_height_mm'],9.8,places=3)
             self.assertEqual(check['roof_rib_count'],4)
-            self.assertAlmostEqual(check['socket_seat_z_mm'],5.1,places=3)
+            self.assertAlmostEqual(check['socket_seat_z_mm'],4.6,places=3)
             self.assertAlmostEqual(check['socket_mouth_z_mm'],.4,places=3)
+            self.assertAlmostEqual(check['cross_length_mm'],4.2,places=3)
+            self.assertAlmostEqual(check['cross_arm_x_mm'],1.35,places=3)
+            self.assertAlmostEqual(check['cross_arm_y_mm'],1.2,places=3)
+            self.assertAlmostEqual(check['boss_d_mm'],5.5,places=3)
 
     def test_current_drawing_set(self):
         rows=json.loads((OUT/'drawings'/'dimensions.json').read_text())

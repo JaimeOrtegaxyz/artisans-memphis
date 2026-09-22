@@ -32,8 +32,11 @@ Rounded motifs use broad 0.6 mm shoulder rolls. Glazed relief has a subtle 0.12 
 ## Socket and structural ribs
 
 - Open underside, tapered cavity, approximately 1.85 mm roof.
-- Centered 5.6 mm-diameter boss. In source-scene coordinates, mouth Z = 0.4 mm and seating stop Z = 5.1 mm.
-- Nominal cross engagement is 4.20 × 1.30 mm, with 4.70 mm total recess depth. A 0.10 mm / 45° lead-in opens the mouth to 4.40 × 1.50 mm before narrowing to the engagement section.
+- Centered 5.5 mm-diameter boss. In source-scene coordinates, mouth Z = 0.4 mm and seating stop Z = 4.6 mm.
+- The cross is 4.20 mm long with separately tuned arms: **1.35 mm horizontal (X) arm, 1.20 mm vertical (Y) arm**, 4.20 mm deep. Measured MX-style stems are roughly 1.25–1.32 mm (X) and 1.05–1.10 mm (Y), about 4.0 mm long and 3.6–3.8 mm tall, so the stem never reaches the slot's ceiling and the boss rests on the slider. Arm tips have 0.10 mm radii to reduce crack-starting corners.
+- A 0.30 mm / 45° entry chamfer eases insertion.
+- These values are set up for a single untested full-color resin (PolyJet-type) order. Support material left in the blind slot tightens it, so both arms carry more clearance than Cherry's own interference-fit socket (4.1 × 1.17 mm, Ø5.6 boss). At bottom-out the boss dips roughly 0.2–0.4 mm into the switch housing opening. Ø5.5 matches common open-source caps and keeps margin under the ~5.8 mm limit.
+- Socket parameters live at the top of `build_memphis.py` (`CROSS_*`, `SOCKET_DEPTH`, `LEAD_IN`, `BOSS_D`).
 - Four 1.10 mm nominal-width radial ribs tie the boss into the roof and inner walls. Lower edges slope upward toward the walls; their lowest nominal Z is approximately 6.05 mm. Small 0.14 mm radii soften the braces.
 - The ribs are permanent structural geometry, **not removable slicer supports**. They intentionally occupy the upper cavity to leave the lower housing space open.
 

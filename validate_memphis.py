@@ -15,10 +15,21 @@ for col in bpy.data.collections:
         stem=next(o for o in col.objects if 'MX socket' in o.name)
         ev=shell.evaluated_get(dg)
         shell_z=[(ev.matrix_world@Vector(p)).z for p in ev.bound_box]
-        # Cross-boundary vertices are inside R=2.5; outer boss vertices are not.
-        slot_z=[(stem.matrix_world@v.co).z for v in stem.data.vertices if math.hypot(v.co.x,v.co.y)<2.5]
-        check={'cap':col.name,'base_height_mm':round(max(shell_z)-min(shell_z),4),'socket_seat_z_mm':round(max(slot_z),4),'socket_mouth_z_mm':round(min(slot_z),4),'roof_rib_count':sum('roof buttress' in o.name for o in col.objects)}
-        check['pass']=abs(check['base_height_mm']-9.8)<.001 and abs(check['socket_seat_z_mm']-5.1)<.001 and abs(check['socket_mouth_z_mm']-.4)<.001 and check['roof_rib_count']==4
+        spec=bpy.context.scene['socket'].to_dict()
+        # Cross-cutter vertices lie inside the boss bevel; outer boss vertices do not.
+        slot=[stem.matrix_world@v.co-stem.matrix_world.translation for v in stem.data.vertices if math.hypot(v.co.x,v.co.y)<spec['boss_d_mm']/2-.2]
+        slot_z=[p.z+stem.matrix_world.translation.z for p in slot]
+        # Measure the engagement section at the seat, below the entry chamfer.
+        seat=[p for p,z in zip(slot,slot_z) if abs(z-max(slot_z))<1e-4]
+        length=2*max(abs(p.x) for p in seat)
+        arm_x=2*max(abs(p.y) for p in seat if abs(p.x)>1)
+        arm_y=2*max(abs(p.x) for p in seat if abs(p.y)>1)
+        check={'cap':col.name,'base_height_mm':round(max(shell_z)-min(shell_z),4),'socket_seat_z_mm':round(max(slot_z),4),'socket_mouth_z_mm':round(min(slot_z),4),
+               'cross_length_mm':round(length,4),'cross_arm_x_mm':round(arm_x,4),'cross_arm_y_mm':round(arm_y,4),'boss_d_mm':round(stem.dimensions.x,4),
+               'roof_rib_count':sum('roof buttress' in o.name for o in col.objects)}
+        check['pass']=(abs(check['base_height_mm']-9.8)<.001 and abs(check['socket_seat_z_mm']-spec['seat_z_mm'])<.001 and abs(check['socket_mouth_z_mm']-spec['mouth_z_mm'])<.001
+                       and abs(length-spec['cross_length_mm'])<.001 and abs(arm_x-spec['arm_x_mm'])<.001 and abs(arm_y-spec['arm_y_mm'])<.001
+                       and abs(check['boss_d_mm']-spec['boss_d_mm'])<.001 and check['roof_rib_count']==4)
         report['engineering_checks'].append(check)
 report['pass']=all(o['non_manifold_edges']==0 and o['volume_mm3']>0 for o in report['objects']) and all(c['pass'] for c in report['engineering_checks'])
 path=os.path.join(os.path.dirname(bpy.data.filepath),'Geometry_Check.json')

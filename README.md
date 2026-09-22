@@ -63,8 +63,9 @@ These are **design references, not manufacturing drawings**. Glaze patterns are 
 | Plain base height | **9.8 mm**, excluding decoration |
 | Main wall draft | Approximately 7.6° |
 | Roof thickness | Approximately 1.85 mm |
-| MX cross engagement | 4.20 × 1.30 mm; 4.70 mm total recess depth |
-| Entry lead-in | 0.10 mm at 45° |
+| MX cross engagement | 4.20 mm long; 1.35 mm horizontal arm / 1.20 mm vertical arm; 4.20 mm deep |
+| Socket boss | Ø5.5 mm |
+| Entry lead-in | 0.30 mm at 45°; 0.10 mm arm-tip radii |
 | Roof reinforcement | Four 1.10 mm nominal ribs |
 
 The 9.8 mm height is a design target informed by owner measurements and [KeyV2’s GMK-based Cherry R1 definition](https://github.com/rsheldiii/KeyV2/blob/19f0d2faadd4949634c93f38d1a66869d29e8f43/src/key_profiles/cherry.scad). That reference includes stem-inset compensation; it is not a universal Cherry specification. See [MODEL_NOTES.md](MODEL_NOTES.md) for the mounting datums and fit caveats.
