@@ -26,6 +26,9 @@ SOCKET_DEPTH=4.20
 SOCKET_SEAT_Z=SOCKET_BOTTOM+SOCKET_DEPTH
 LEAD_IN=.30
 BOSS_D=5.5
+# Clean zone for the ARCH cap's Dalmatian stains: arch/dome center in plan and clearing radius.
+POCKET_CENTER=(0,-4.15)
+POCKET_CLEAR_R=2.7
 WALL_DRAFT=math.degrees(math.atan(1.2/(DECK_Z-.35-.7)))
 scene['shell_height_mm']=SHELL_HEIGHT
 scene['deck_z_mm']=DECK_Z
@@ -77,7 +80,21 @@ ramp.color_ramp.interpolation='CONSTANT'
 ramp.color_ramp.elements[0].position=0; ramp.color_ramp.elements[0].color=(.006,.008,.009,1)
 ramp.color_ramp.elements[1].position=.284; ramp.color_ramp.elements[1].color=(*cream.diffuse_color[:3],1)
 links.new(cells.outputs['Distance'],ramp.inputs['Fac'])
-links.new(ramp.outputs['Color'],nodes.get('Principled BSDF').inputs['Base Color'])
+# Keep the arch's inner pocket calm: drop every WHOLE stain whose cell center lands
+# inside it (never clip a stain), so the dome sits on mostly clean porcelain.
+# Cell centers live in warped space; the warp shifts X/Y by ~0.75 on average.
+flat=nodes.new('ShaderNodeVectorMath'); flat.operation='MULTIPLY'; flat.inputs[1].default_value=(1,1,0); flat.location=(50,-260)
+links.new(cells.outputs['Position'],flat.inputs[0])
+offset=nodes.new('ShaderNodeVectorMath'); offset.operation='SUBTRACT'; offset.inputs[1].default_value=(POCKET_CENTER[0]+.75,POCKET_CENTER[1]+.75,0); offset.location=(220,-260)
+links.new(flat.outputs['Vector'],offset.inputs[0])
+reach=nodes.new('ShaderNodeVectorMath'); reach.operation='LENGTH'; reach.location=(390,-260)
+links.new(offset.outputs['Vector'],reach.inputs[0])
+keep=nodes.new('ShaderNodeMath'); keep.operation='GREATER_THAN'; keep.inputs[1].default_value=POCKET_CLEAR_R; keep.location=(560,-260)
+links.new(reach.outputs['Value'],keep.inputs[0])
+calm=nodes.new('ShaderNodeMix'); calm.data_type='RGBA'; calm.location=(560,0)
+calm.inputs['A'].default_value=(*cream.diffuse_color[:3],1)
+links.new(keep.outputs['Value'],calm.inputs['Factor']); links.new(ramp.outputs['Color'],calm.inputs['B'])
+links.new(calm.outputs['Result'],nodes.get('Principled BSDF').inputs['Base Color'])
 
 current=cols[0]; origin=(0,0)
 def finish(obj,name,material,bevel=0):
@@ -272,7 +289,7 @@ for i in range(4):
     current=cols[i]; origin=origins[i]; shell=base(['ARCH','ZIGZAG','DISC','STAIRS'][i],[cream,yellow,blue,red][i])
     if i==0:
         # Concentric semicircular crown with short straight legs.
-        cy=-4.15; outer=7.0; inner=3.35
+        cy=POCKET_CENTER[1]; outer=7.0; inner=3.35
         poly=[(outer*math.cos(t*math.pi/64),cy+outer*math.sin(t*math.pi/64)) for t in range(65)]
         poly += [(inner*math.cos(t*math.pi/64),cy+inner*math.sin(t*math.pi/64)) for t in range(64,-1,-1)]
         glazed_prism('ARCH | concentric teal arch with short legs',poly,teal,height=1.6,corner=.8,roll=.6,paired_cap=True,outline_fn=arch_outline)
