@@ -58,7 +58,7 @@ for m in (cream,teal,red,yellow,blue,violet):
 spotted=cream.copy(); spotted.name='08 | Dalmatian porcelain • continuous 3D stains'
 nodes=spotted.node_tree.nodes; links=spotted.node_tree.links
 tex=nodes.new('ShaderNodeTexCoord'); tex.location=(-900,0)
-noise=nodes.new('ShaderNodeTexNoise'); noise.inputs['Scale'].default_value=.8; noise.inputs['Detail'].default_value=1.3; noise.location=(-720,-160)
+noise=nodes.new('ShaderNodeTexNoise'); noise.inputs['Scale'].default_value=.8; noise.inputs['Detail'].default_value=0; noise.location=(-720,-160)
 # Normalize pigment coordinates to a fixed texture-space height.
 rescale=nodes.new('ShaderNodeVectorMath'); rescale.operation='MULTIPLY'; rescale.inputs[1].default_value=(1,1,8.75/SHELL_HEIGHT)
 links.new(tex.outputs['Object'],rescale.inputs[0])
@@ -71,9 +71,11 @@ add=nodes.new('ShaderNodeVectorMath'); add.operation='ADD'; add.location=(-330,0
 links.new(remap.outputs['Vector'],add.inputs[0]); links.new(warp.outputs['Vector'],add.inputs[1])
 cells=nodes.new('ShaderNodeTexVoronoi'); cells.inputs['Scale'].default_value=.28; cells.location=(-150,0)
 links.new(add.outputs['Vector'],cells.inputs['Vector'])
-ramp=nodes.new('ShaderNodeValToRGB'); ramp.location=(50,0); ramp.color_ramp.interpolation='EASE'
-ramp.color_ramp.elements[0].position=.275; ramp.color_ramp.elements[0].color=(.006,.008,.009,1)
-ramp.color_ramp.elements[1].position=.292; ramp.color_ramp.elements[1].color=(*cream.diffuse_color[:3],1)
+ramp=nodes.new('ShaderNodeValToRGB'); ramp.location=(50,0)
+# Hard-edged Memphis stains: a CONSTANT ramp gives a crisp pigment boundary with no soft falloff.
+ramp.color_ramp.interpolation='CONSTANT'
+ramp.color_ramp.elements[0].position=0; ramp.color_ramp.elements[0].color=(.006,.008,.009,1)
+ramp.color_ramp.elements[1].position=.284; ramp.color_ramp.elements[1].color=(*cream.diffuse_color[:3],1)
 links.new(cells.outputs['Distance'],ramp.inputs['Fac'])
 links.new(ramp.outputs['Color'],nodes.get('Principled BSDF').inputs['Base Color'])
 

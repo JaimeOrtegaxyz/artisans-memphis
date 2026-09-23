@@ -19,7 +19,9 @@ COLLECTION=bpy.data.collections.new('Temporary color export'); scene.collection.
 REPORT={'units':'mm','axes':'Z up, skirt bottom at Z=0 (same placement as the STLs)','texture_px':TEXTURE,'physical_fit_validated':False,
         'note':'Colors are baked from the Blender materials. Closed-mesh checks do not establish switch fit or printability.','files':[]}
 
-scene.render.engine='CYCLES'; scene.cycles.device='CPU'; scene.cycles.samples=8
+scene.render.engine='CYCLES'; scene.cycles.device='CPU'; scene.cycles.samples=16
+# Narrow pixel filter keeps the hard stain boundaries crisp in the baked texture.
+scene.cycles.filter_width=.7
 scene.render.bake.margin=8; scene.render.bake.margin_type='EXTEND'
 
 
@@ -130,6 +132,6 @@ if not REPORT['pass']: raise RuntimeError('One or more color meshes failed valid
 # Preview: the baked-texture copies from the hero camera, for comparison with Memphis_Artisans.png.
 for c in bpy.data.collections:
     if c.name[:2] in ('01','02','03','04'): c.hide_render=True
-scene.cycles.samples=32; scene.render.resolution_x=scene.render.resolution_y=1000
+scene.cycles.samples=32; scene.cycles.filter_width=1.5; scene.render.resolution_x=scene.render.resolution_y=1000
 scene.render.filepath=os.path.join(OUT,'Color_Preview.png'); bpy.ops.render.render(write_still=True)
 print('COLOR_EXPORT_PASS: 5 textured OBJ+MTL+PNG sets')
